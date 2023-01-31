@@ -1,4 +1,5 @@
 import './App.css'
+import FlipButton from './flip-button'
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
         </a>
       </div>
       <h1>Flip Button Exercise</h1>
+      <FlipButton numButtons={5} />
       <div className="card">
         <p>
           Create a flip button component according to the specification and add examples of using it here below.
