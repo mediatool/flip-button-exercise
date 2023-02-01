@@ -1,35 +1,48 @@
+import { CheckIcon } from "@chakra-ui/icons"
+import React, { useState } from 'react';
+import { Button, ButtonGroup } from '@chakra-ui/react'
+
 interface Props {
     numButtons: number;
     buttonTexts: string[];
 }
 
 const FlipButton: React.FC<Props> = ({ numButtons, buttonTexts }) => {
+    const [selectedButtons, setSelectedButtons] = useState<number[]>([]);
+
+    const handleClick = (index: number) => {
+        setSelectedButtons(prevSelectedButtons => {
+            if (prevSelectedButtons.includes(index)) {
+                return prevSelectedButtons.filter(i => i !== index);
+            } else {
+                return [...prevSelectedButtons, index];
+            }
+        });
+    };
+
     const buttons = []
-    const buttonWidth = Math.floor((568 - numButtons * 4) / numButtons) + 'px';
-
-    const selectFlipButton = ({ flipButtonId }: { flipButtonId: string }) => {
-        const element = document.getElementById(flipButtonId)
-
-        if (element) {
-            if (element.classList.contains('selected-flip-button')) {
-                element.classList.remove('selected-flip-button')
-            }
-            else {
-                element.classList.add('selected-flip-button');
-            }
-        }
-    }
-
+    const buttonWidth = Math.floor((568 - numButtons * 4) / numButtons) + "px";
     for (let i = 0; i < numButtons; i++) {
-        buttons.push(<button id={`flipButton${i}`} className="flip-button" style={{ width: buttonWidth }} onClick={() => selectFlipButton({ flipButtonId: `flipButton${i}` })}>
-            <div className="test"></div>
+        const isActive = selectedButtons.includes(i) ? true : false;
+        buttons.push(<Button
+            size="xs"
+            id={`flipButton${i}`}
+            className="flip-button"
+            backgroundColor={isActive ? "#2a8bfb" : "#eaf3ff"}
+            color={isActive ? "white" : "black"}
+            width={buttonWidth}
+            _hover={{ background: "#7fb9fd", color: "white" }}
+            _focus={{ outline: "none" }} //Remove border after clicking button
+            leftIcon={isActive ? <CheckIcon mr="7px" /> : undefined}
+            onClick={() => handleClick(i)}>
             {buttonTexts[i] === undefined ? "missing text" : buttonTexts[i]}
-        </button>);
+
+        </Button>);
     }
     return (
-        <div className="flip-button-wrapper">
+        <ButtonGroup className="flip-button-wrapper">
             {buttons}
-        </div>
+        </ButtonGroup>
     )
 };
 

@@ -93,30 +93,8 @@ button:focus-visible {
 .flip-button {
   background-color: #eaf3ff;
   color: black;
-  height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
   border: none;
-}
-
-.flip-button:hover {
-  background-color: #7fb9fd;
-  color: white;
-}
-
-.selected-flip-button {
-  background-color: #1a1a1a;
-}
-
-.test {
-  left: 9px;
-  top: 5px;
-  width: 5px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
 }
