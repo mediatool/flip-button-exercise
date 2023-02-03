@@ -14,9 +14,8 @@ const FlipButton = ({ ...props }: Props) => {
         setSelectedButtons(prevSelectedButtons => {
             if (prevSelectedButtons.includes(index)) {
                 return prevSelectedButtons.filter(i => i !== index);
-            } else {
-                return [...prevSelectedButtons, index];
             }
+            return [...prevSelectedButtons, index];
         });
     };
 
