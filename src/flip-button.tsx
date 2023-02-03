@@ -21,7 +21,7 @@ const FlipButton = ({ ...props }: Props) => {
     };
 
     const buttons = []
-    const buttonWidth = Math.floor((568 - props.numButtons * 4) / props.numButtons) + "px";
+    const buttonWidth = Math.floor(100 / props.numButtons) + "%";
     for (let i = 0; i < props.numButtons; i++) {
         const isActive = selectedButtons.includes(i);
         buttons.push(<Button
