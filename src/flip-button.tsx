@@ -20,7 +20,6 @@ const FlipButton = ({ ...props }: Props) => {
         });
     };
 
-    const buttons = []
     const buttonWidth = Math.floor(100 / props.buttonTexts.length) + "%";
 
     props.buttonTexts = props.buttonTexts.map(text => {
@@ -39,7 +38,6 @@ const FlipButton = ({ ...props }: Props) => {
                 leftIcon={isActive ? <CheckIcon mr="7px" /> : undefined}
                 onClick={() => handleClick(index)}>
                 {text}
-
             </Button>
         );
     });
