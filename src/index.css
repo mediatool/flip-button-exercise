@@ -80,14 +80,11 @@ button:focus-visible {
 
 .flip-button-wrapper {
   background-color: #eaf3ff;
-  height: 32px;
-  width: 568px;
   border-radius: 7px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-left: 4px;
-  padding-right: 4px;
+  padding: 4px;
 }
 
 .flip-button {

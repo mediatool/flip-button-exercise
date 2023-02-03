@@ -12,7 +12,7 @@ function App() {
           </a>
         </div>
         <h1>Flip Button Exercise</h1>
-        <FlipButton buttonTexts={["hi", "bye", "pizza", "hej"]} />
+        <FlipButton size={["100%", "50px"]} buttonTexts={["hi", "bye", "pizza", "hej"]} />
         <div className="card">
           <p>
             Create a flip button component according to the specification and add examples of using it here below.

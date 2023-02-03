@@ -4,6 +4,7 @@ import { Button, ButtonGroup } from '@chakra-ui/react'
 
 interface Props {
     buttonTexts: (string | JSX.Element)[];
+    size: string[];
 }
 
 const FlipButton = ({ ...props }: Props) => {
@@ -27,12 +28,12 @@ const FlipButton = ({ ...props }: Props) => {
         const isActive = selectedButtons.includes(index);
         return (
             <Button
-                size="xs"
                 key={index}
                 className="flip-button"
                 backgroundColor={isActive ? "#2a8bfb" : "#eaf3ff"}
                 color={isActive ? "white" : "black"}
                 width={buttonWidth}
+                height="100%"
                 _hover={{ background: "#7fb9fd", color: "white" }}
                 _focus={{ outline: "none" }} //Remove border after clicking button
                 leftIcon={isActive ? <CheckIcon mr="7px" /> : undefined}
@@ -44,7 +45,7 @@ const FlipButton = ({ ...props }: Props) => {
     });
 
     return (
-        <ButtonGroup className="flip-button-wrapper">
+        <ButtonGroup width={props.size[0]} height={props.size[1]} className="flip-button-wrapper">
             {props.buttonTexts}
         </ButtonGroup>
     )
