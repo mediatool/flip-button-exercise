@@ -7,7 +7,7 @@ interface Props {
     buttonTexts: string[];
 }
 
-const FlipButton: React.FC<Props> = ({ numButtons, buttonTexts }) => {
+const FlipButton = ({ ...props }: Props) => {
     const [selectedButtons, setSelectedButtons] = useState<number[]>([]);
 
     const handleClick = (index: number) => {
@@ -21,8 +21,8 @@ const FlipButton: React.FC<Props> = ({ numButtons, buttonTexts }) => {
     };
 
     const buttons = []
-    const buttonWidth = Math.floor((568 - numButtons * 4) / numButtons) + "px";
-    for (let i = 0; i < numButtons; i++) {
+    const buttonWidth = Math.floor((568 - props.numButtons * 4) / props.numButtons) + "px";
+    for (let i = 0; i < props.numButtons; i++) {
         const isActive = selectedButtons.includes(i) ? true : false;
         buttons.push(<Button
             size="xs"
@@ -35,7 +35,7 @@ const FlipButton: React.FC<Props> = ({ numButtons, buttonTexts }) => {
             _focus={{ outline: "none" }} //Remove border after clicking button
             leftIcon={isActive ? <CheckIcon mr="7px" /> : undefined}
             onClick={() => handleClick(i)}>
-            {buttonTexts[i] === undefined ? "missing text" : buttonTexts[i]}
+            {props.buttonTexts[i] === undefined ? "missing text" : props.buttonTexts[i]}
 
         </Button>);
     }
