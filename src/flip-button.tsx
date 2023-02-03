@@ -26,7 +26,7 @@ const FlipButton = ({ ...props }: Props) => {
         const isActive = selectedButtons.includes(i);
         buttons.push(<Button
             size="xs"
-            id={`flipButton${i}`}
+            key={`flipButton${i}`}
             className="flip-button"
             backgroundColor={isActive ? "#2a8bfb" : "#eaf3ff"}
             color={isActive ? "white" : "black"}
