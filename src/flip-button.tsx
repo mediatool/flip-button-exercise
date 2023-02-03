@@ -19,8 +19,6 @@ const FlipButton = ({ ...props }: Props) => {
         });
     };
 
-    console.log("Before:" + props.buttonTexts);
-
     const buttons = []
     const buttonWidth = Math.floor(100 / props.buttonTexts.length) + "%";
 
@@ -36,7 +34,7 @@ const FlipButton = ({ ...props }: Props) => {
                 color={isActive ? "white" : "black"}
                 width={buttonWidth}
                 _hover={{ background: "#7fb9fd", color: "white" }}
-                _focus={{ outline: "none" }}
+                _focus={{ outline: "none" }} //Remove border after clicking button
                 leftIcon={isActive ? <CheckIcon mr="7px" /> : undefined}
                 onClick={() => handleClick(index)}>
                 {text}
@@ -44,8 +42,6 @@ const FlipButton = ({ ...props }: Props) => {
             </Button>
         );
     });
-
-    console.log("After:" + props.buttonTexts);
 
     return (
         <ButtonGroup className="flip-button-wrapper">
